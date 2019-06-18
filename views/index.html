@@ -1,70 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- Bootstrap Loading -->
-    <link rel="stylesheet" href="/assets/css/bootstrap.css">
-    <!-- <link rel="stylesheet" href="F:/Trabalhos/Faculdade/Estrutura de Dados 2/Trabalhos/PokemonCarryAPI/views/assets/css/bootstrap.css"> -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- Bootstrap Loading -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.css">
+  <!-- <link rel="stylesheet" href="F:/Trabalhos/Faculdade/Estrutura de Dados 2/Trabalhos/PokemonCarryAPI/views/assets/css/bootstrap.css"> -->
     
-    <link rel="stylesheet" href="/assets/css/index.css">
-    <!-- <link rel="stylesheet" href="F:/Trabalhos/Faculdade/Estrutura de Dados 2/Trabalhos/PokemonCarryAPI/views/assets/css/index.css"> -->
+  <link rel="stylesheet" href="/assets/css/index.css">
+  <!-- <link rel="stylesheet" href="F:/Trabalhos/Faculdade/Estrutura de Dados 2/Trabalhos/PokemonCarryAPI/views/assets/css/index.css"> -->
 
-    <title>Pokémon Carry - Cuide do seu Pokémon</title>
+  <title>Pokémon Carry - Cuide do seu Pokémon</title>
+
 </head>
-<body style="display: none;" class="h-100 bg-dark">
-    
-	<nav class="navbar navbar-dark bg-light">
-		<a class="navbar-brand">Pokémon</a>
-		<button class="btn btn-primary" data-toggle="modal" data-target="#tutorial">Como funciona?</button>
-	</nav>
-	
-    <div id="content" class="justify-content-center align-items-center">
-        <div id="pokemon-data" class="">
-            <div id="pokemon-nome" class="row justify-content-center">
-                <h1>Ovo de Inseto</h1>
-            </div>
-            <div id="pokemon-imagem" class="row justify-content-center" style="margin-top: 25%">
-                <a class="" data-toggle="tooltip" data-placement="right" data-html="true" title="
-					<h4>Pokémons possíveis:</h4>
-					<img src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png'></img>">
-                    <img src="/assets/img/bug.png" alt="">
-                </a>
-            </div>
-			<div id="pokemon-acoes" class="row justify-content-center">
-				<button type="button" class="btn btn-primary" style="margin-top: 20%;">Dar comida</button>
-			</div>
-			<br>
-			<div id="pokemon-vida" class="row progress">
-				<div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
-			</div>
-			<div id="pokemon-fome" class="row progress" style="margin-top: 5%;">
-				<div class="progress-bar progress-bar-striped bg-secondary" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-			</div>
+
+<body style="display: none;">
+  
+    <!-- Hint to learn -->
+    <div id="hint" class="row mx-4 mt-4 mb-2">
+        <div class="jumbotron container-fluid">
+            <button type="button" class="close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h1 class="title text-dark">Olá, Daniel!</h1>
+            <p>Capture seus Pokémons no mapa à direita e cuide deles, tenha o maior número de Pokémons possíveis, sem deixar o seus companheiros morrerem.</p>
         </div>
     </div>
 
-	<!-- Modal -->
-	<div class="modal fade" id="tutorial" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-	  <div class="modal-dialog modal-dialog-centered" role="document">
-		<div class="modal-content">
-		  <div class="modal-header">
-			<h5 class="modal-title" id="exampleModalCenterTitle">Como funciona?</h5>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			  <span aria-hidden="true">&times;</span>
-			</button>
-		  </div>
-		  <div class="modal-body">
-			Funciona assim...
-		  </div>
-		  <div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-dismiss="modal">Feito</button>
-		  </div>
-		</div>
-	  </div>
-	</div>
+    <!-- The columns content -->
+    <div class="row">
+
+        <!-- Pokémon View -->
+        <div class="col-4 ml-5">
+            <div class="row">
+                <div class="col-1 py-5 my-5">
+                    <ion-icon id="pokemon-left" name="arrow-dropleft" size="large" style="fill: #000;"></ion-icon>
+                </div>
+                <div class="col-10">
+                    <div id="content" class="text-center mb-5">
+                        <div id="pokemon-name"><h1 class="text-dark">Ovo de Inseto</h1></div>
+                        <div id="pokemon-image" class="mt-5"><img src="/assets/img/bug.png" alt=""></div>
+                    </div>
+                    <div id="actions" class="text-center my-4">
+                        <button type="button" class="btn btn-primary">Dar Comida</button>
+                    </div>
+                    <div id="status" class="text-center my-2">
+                        <div class="progress mb-3">
+                            <div id="life" class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                        </div>
+                        <div class="progress">
+                            <div id="hunger" class="progress-bar progress-bar-striped bg-secondary" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1 py-5 my-5">
+                    <ion-icon id="pokemon-right" name="arrow-dropright" size="large" style="fill: #000;"></ion-icon>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pokémons Map -->
+        <div class="col-8 bg-alert">
+            <div class="bd-example-container-body"></div>
+        </div>
+    </div>
 	
     <!-- JQuery -->
     <script src="/assets/js/jquery-3.4.1.min.js" type="text/javascript"></script>
@@ -85,6 +87,8 @@
     <script src="/assets/js/index.js" type="text/javascript"></script>
     <script src="/assets/js/pokemon.js" type="text/javascript"></script>
     <!-- <script src="F:/Trabalhos/Faculdade/Estrutura de Dados 2/Trabalhos/PokemonCarryAPI/views/assets/js/index.js"></script>  -->
+
+    <script type="module" src="https://unpkg.com/ionicons@4.5.9-1/dist/ionicons/ionicons.esm.js"></script>
 
 </body>
 </html>

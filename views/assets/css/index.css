@@ -13,3 +13,7 @@ button {
     overflow: hidden;
     outline: none;
 }
+
+svg {
+    fill: #fff;    
+}
