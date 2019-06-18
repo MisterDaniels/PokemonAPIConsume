@@ -1,0 +1,25 @@
+{
+  "name": "pokemoncarryapi",
+  "version": "1.0.0",
+  "description": "Cuide do seu Pokémon, consumo da API PokeAPI",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [
+    "pokemon",
+    "games",
+    "jogos",
+    "api"
+  ],
+  "author": "Daniel Silva",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0",
+    "sass": "^1.21.0",
+    "socket.io": "^2.2.0"
+  }
+}

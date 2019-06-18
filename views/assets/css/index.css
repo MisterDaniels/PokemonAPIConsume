@@ -1,0 +1,15 @@
+h1 {
+    color: #fff;
+}
+
+.align-items-center {
+    height: 40em;
+}
+
+button {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    overflow: hidden;
+    outline: none;
+}

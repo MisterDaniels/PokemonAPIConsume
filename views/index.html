@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Bootstrap Loading -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="F:/Trabalhos/Faculdade/Estrutura de Dados 2/Trabalhos/PokemonCarryAPI/views/assets/css/bootstrap.css"> -->
+    
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <!-- <link rel="stylesheet" href="F:/Trabalhos/Faculdade/Estrutura de Dados 2/Trabalhos/PokemonCarryAPI/views/assets/css/index.css"> -->
+
+    <title>Pokémon Carry - Cuide do seu Pokémon</title>
+</head>
+<body style="display: none;" class="h-100 bg-dark">
+    
+	<nav class="navbar navbar-dark bg-light">
+		<a class="navbar-brand">Pokémon</a>
+		<button class="btn btn-primary" data-toggle="modal" data-target="#tutorial">Como funciona?</button>
+	</nav>
+	
+    <div id="content" class="justify-content-center align-items-center">
+        <div id="pokemon-data" class="">
+            <div id="pokemon-nome" class="row justify-content-center">
+                <h1>Ovo de Inseto</h1>
+            </div>
+            <div id="pokemon-imagem" class="row justify-content-center" style="margin-top: 25%">
+                <a class="" data-toggle="tooltip" data-placement="right" data-html="true" title="
+					<h4>Pokémons possíveis:</h4>
+					<img src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png'></img>">
+                    <img src="/assets/img/bug.png" alt="">
+                </a>
+            </div>
+			<div id="pokemon-acoes" class="row justify-content-center">
+				<button type="button" class="btn btn-primary" style="margin-top: 20%;">Dar comida</button>
+			</div>
+			<br>
+			<div id="pokemon-vida" class="row progress">
+				<div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+			</div>
+			<div id="pokemon-fome" class="row progress" style="margin-top: 5%;">
+				<div class="progress-bar progress-bar-striped bg-secondary" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+			</div>
+        </div>
+    </div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="tutorial" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="exampleModalCenterTitle">Como funciona?</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body">
+			Funciona assim...
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Feito</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+    <!-- JQuery -->
+    <script src="/assets/js/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <!-- <script src="F:/Trabalhos/Faculdade/Estrutura de Dados 2/Trabalhos/PokemonCarryAPI/views/assets/js/jquery-3.4.1.min.js"></script> -->
+
+    <!-- Pooper.js -->
+    <script src="/assets/js/popper.min.js" type="text/javascript"></script>
+    <!-- <script src="F:/Trabalhos/Faculdade/Estrutura de Dados 2/Trabalhos/PokemonCarryAPI/views/assets/js/popper.min.js"></script>     -->
+
+    <!-- Bootstrap.js -->
+    <script src="/assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- <script src="F:/Trabalhos/Faculdade/Estrutura de Dados 2/Trabalhos/PokemonCarryAPI/views/assets/js/bootstrap.min.js"></script> -->
+        
+    <!-- Socket.IO -->
+    <script src="/socket.io/socket.io.js"></script>
+        
+    <!-- Original Javacript -->
+    <script src="/assets/js/index.js" type="text/javascript"></script>
+    <script src="/assets/js/pokemon.js" type="text/javascript"></script>
+    <!-- <script src="F:/Trabalhos/Faculdade/Estrutura de Dados 2/Trabalhos/PokemonCarryAPI/views/assets/js/index.js"></script>  -->
+
+</body>
+</html>
