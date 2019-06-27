@@ -14,6 +14,6 @@ button {
     outline: none;
 }
 
-svg {
-    fill: #fff;    
+#map {
+    height: 500px;
 }
