@@ -1,16 +1,13 @@
 
+// Variável global carregada com as requisições dos ovos de Pokémon
 var eggs = {
     count: '',
     eggs: []
 };
+// Variável global carregada com as requisições dos Pokémons
 var pokemons = {
     count: 807,
-    pokemons: [{
-        evolutions: []
-    }]
-};
-var evolutions = {
-    evolutions: []
+    pokemons: []
 };
 var data2;
 
@@ -19,6 +16,7 @@ var intervalToHatchAndFood;
 loadEggs();
 loadPokemons();
 
+// Requisita os ovos da API, depois vai construindo a váriavel global
 function loadEggs() {
     $.getJSON('https://pokeapi.co/api/v2/egg-group/').then(function(data){
         
@@ -35,6 +33,7 @@ function loadEggs() {
     });
 }
 
+// Requisita as opções de Pokémons nascidos dos ovos da API, depois vai colocando na váriavel global
 function loadEggPossibilites(egg_id) {
     $.getJSON(eggs.eggs[egg_id].url).then(function(data) {
         for (var j = 0; j < data.pokemon_species.length; j++) {
@@ -43,42 +42,21 @@ function loadEggPossibilites(egg_id) {
     });
 }
 
-function loadPlayerPokemonDetails(evolve_url) {
-    $.getJSON(evolve_url).then(function(data) {
-
-    });
-}
-
+// Faz o loop para carregar todos os Pokémons
 function loadPokemons() {
-    $.getJSON('https://pokeapi.co/api/v2/pokemon/').then(function(data) {
-
-        for (var i = 1; i <= pokemons.count; i++) {
-            loadPokemon(i);
-        }
-    });
+    for (var i = 1; i <= pokemons.count; i++) {
+        loadPokemon(i);
+    }
 }
 
+// Faz a requisição de cada um dos Pokémons (por url), então, vai construindo a váriavel global, recebe o id do Pokémon (baseado no parâmetro da url da API)
 function loadPokemon(pokemon_id) {
     $.getJSON('https://pokeapi.co/api/v2/pokemon-species/' + pokemon_id).then(function(data) {
         pokemons.pokemons.push({id: data.id, name: data.name, url: 'https://pokeapi.co/api/v2/pokemon-species/' + pokemon_id, evolution_chain: data.evolution_chain.url});
     });
 }
 
-function loadEvolutions() {
-    for (var i = 1; i <= pokemons.count; i++) {
-        loadEvolution(i);
-    }
-}
-
-function loadEvolution(pokemon_id) {
-    $.getJSON(pokemons.pokemons[pokemon_id].evolution_chain).then(function(data) {
-        pokemons.pokemons[pokemon_id].evolutions = {evolve_to: [{evolve_level: data.chain.evolves_to[0].evolution_details[0].min_level, evolve_name: data.chain.evolves_to[0].species.name}]};
-        if (data.chain.evolves_to[0].evolves_to[0] != null) {
-            pokemons.pokemons[pokemon_id].evolutions.evolve_to.push({evolve_level: data.chain.evolves_to[0].evolves_to[0].evolution_details[0].min_level, evolve_name: data.chain.evolves_to[0].evolves_to[0].species.name});
-        }
-    });
-}
-
+// Retorna um Pokémon aleatório da váriavel global de Pokémons
 function getRandomPokemon() {
     var randomPokemon;
 
@@ -87,6 +65,7 @@ function getRandomPokemon() {
     return pokemons.pokemons[randomPokemon];
 }
 
+// Retorna um ovo aleatório da váriavel global de Ovos, pode ou não ser ovo raro
 function getRandomEgg(canRare = false) {
     var randomEgg;
     if (canRare === false) {
@@ -98,6 +77,7 @@ function getRandomEgg(canRare = false) {
     return eggs.eggs[randomEgg];
 }
 
+// Função para carregar o Pokémon do id do inventário de Pokémons do usuário
 function loadPlayerPokemon(inventory_id) {
     if (savedData.pokemons[inventory_id].type === 'egg') {
         $('#pokemon-name h1:first').text(uppercaseFirst(savedData.pokemons[inventory_id].name) + " Egg");
@@ -191,29 +171,25 @@ function loadPlayerPokemon(inventory_id) {
     $('#pokemon-hunger').text(savedData.pokemons[inventory_id].hunger + "%");
 }
 
+// Dá para o jogador/usuário um Pokémon baseado no nome
 function givePlayerPokemon(pokemon_name) {
     $.getJSON('https://pokeapi.co/api/v2/pokemon-species/' + pokemon_name).then(function(data) {
 
-        var evolve_to;
-        var level_to;
-        $.getJSON(data.evolution_chain.url).then(function(data) {
-            evolve_to = data.chain.evolves_to.evolves_to.species.name;
-            level_to = data.chain.evolves_to.evolution_details.min_level;
-        });
-
         setTimeout(function (){
-            savedData.pokemons.push({'type': 'pokemon', 'id': data.id, 'name': pokemon_name, 'evolve_to': evolve_to, 'level_to': level_to, 'life': 100, 'hunger': 100, 'level': 1});
+            savedData.pokemons.push({'type': 'pokemon', 'id': data.id, 'name': pokemon_name, 'life': 100, 'hunger': 100, 'level': 1});
         }, 1000);
 
     });
 }
 
+// Dá para o jogador/usuário um Ovo de Pokémon baseado no objeto ovo recebido
 function givePlayerEgg(egg, hoursToHatch = 1) {
     var futureDate = new Date();
     futureDate.setHours(futureDate.getHours() + hoursToHatch);
     savedData.pokemons.push({'type': 'egg', 'id': egg.id, 'name': egg.name, 'url': egg.url, 'hatch': futureDate, 'life': 100, 'hunger': 100, 'level': 0});
 }
 
+// Coloca os digitos faltante do id para coletar as imagens do site que disponibiliza
 function checkPokemonId(pokemon_id) {
     var id = parseInt(pokemon_id);
     if (id < 10) {
@@ -225,6 +201,7 @@ function checkPokemonId(pokemon_id) {
     return id;
 }
 
+// Muda o Pokémon do usuário, baseado no id do inventário dele e no nome do novo Pokémon
 function changePlayerPokemon(inventory_id, pokemon_name) {
     $.getJSON('https://pokeapi.co/api/v2/pokemon-species/' + pokemon_name).then(function(data) {
 
@@ -234,6 +211,7 @@ function changePlayerPokemon(inventory_id, pokemon_name) {
     });
 }
 
+// Função para chocar o ovo de Pokémon
 function hatchEgg(egg) {
     var randomPokemon;
 
@@ -242,12 +220,14 @@ function hatchEgg(egg) {
     return eggs.eggs[egg.id].pokemon_possibilities[randomPokemon].name;
 }
 
+// Retorna a possibilidade de captura de um Pokémon qualquer
 function capturePokemon() {
 
     return (Math.floor(Math.random()*100) >= 50) ? "Peguei!" : "Ele escapou!";
 
 }  
 
+// Alimenta o Pokémon, baseado no id do inventário do player e a quantidade de comida dado
 function giveFood(inventory_id, quantity) {
     if (savedData.pokemons[inventory_id].hunger + quantity < 100) {
         savedData.pokemons[inventory_id].hunger = savedData.pokemons[inventory_id].food + quantity;
@@ -256,16 +236,19 @@ function giveFood(inventory_id, quantity) {
     }
 }
 
+// Dá level para o Pokémon, baseado no id do inventário do player e a quantidade de level dado
 function giveLevel(inventory_id, quantity) {
     savedData.pokemons[inventory_id].level += quantity;
 }
 
+// Mata o Pokémon baseado no id do inventário do player
 function killPokemon(inventory_id) {
     var date = new Date();
     savedData.pokemons[inventory_id].dead_time = date.getDay() + "/" + date.getMonth() + "/" + date.getFullYear() + " " + date.getHours() + ":" + date.getMinutes();
     savedData.pokemons[inventory_id].type = 'dead';
 }
 
+// Coloca o primeiro caracter da string em maiúsculo para mostrar String 
 function uppercaseFirst(word) {
     return word.charAt(0).toUpperCase() + word.slice(1);
 }

@@ -1,8 +1,11 @@
+// Dados das marcas que defininem os Pokémons no mapa e a janela de informação, para mostrar se "pegou" ou "não"
 var markers = [];
 var infoWindow;
 
+// Intervalo para gerar novos Pokémons
 var intervalToGenerate;
 
+// Função para gerar novos Pokémons no mapa, recebe a quantidade que deve ser gerada
 function generateRandomPokemons(quantity) {
 
     savedData.generated_pokemons = [];
@@ -51,6 +54,7 @@ function generateRandomPokemons(quantity) {
     disableGeneration();
 }
 
+// Retorna um local aleatório para a geração do Pokémon (lugar viciado nos EUA, por conta dos valores inicias, ou o raio)
 function getRandomLocation() {
 
     var southWest = new google.maps.LatLng(40.744656, -74.005966);
@@ -62,6 +66,7 @@ function getRandomLocation() {
 
 }
 
+// Desabilita a geração de novos Pokémons, definidos pelo botão de gerar
 function disableGeneration() {
     $('#generate').attr('disabled', '');
 
@@ -78,6 +83,7 @@ function disableGeneration() {
     }, 1000);
 }
 
+// Checa se o usuário saiu da sessão anterior deixando Pokémons ainda no mapa
 function checkGeneration() {
     var timeToWait = new Date(savedData.generate_time) - new Date();
 
@@ -89,6 +95,7 @@ function checkGeneration() {
     }
 }
 
+// Carregar Pokémons gerados da sessão anterior do usuário
 function loadPokemonsGenerated() {
     markers = [];
 
