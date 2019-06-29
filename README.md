@@ -56,3 +56,34 @@ $ yarn start
 ```javascript
 createCookieUser('username');
 ```
+> Atualize a página com a url localhost:3000?username='username-cadastrado-anteriormente'
+
+Pronto, agora com os dados inicias salvos no Cookie, é possível entrar na conta cadastrada passando o username na url como parâmetro
+
+---
+
+## Funcionalidades e imagens
+
+### Alimentar
+A aplicação tem como base alimentar o Pokémon do usuário. É utilizado um ciclo padrão de 1 em 1 minuto para dar fome para o Pokémon, representado na barra de progresso mais abaixo. Se caso essa base de 100% terminar, é começado um ciclo de 1 em 1 minuto para remover a vida do Pokémon. Caso o Pokémon perca o total de vida, ele morre.
+![alt text](https://i.ibb.co/8cTk1wV/Morte.png)
+
+### Level
+Os Pokémons possuem level apenas para fundamento de evolução (não presente no estado projeto)
+![alt text](https://i.ibb.co/B6M1Wqv/Level.png)
+
+### Inventário de Pokémons
+O jogador cadastrado, possue um inventário de Pokémons que pode ser expandido. Para trocar de Pokémon, é utilizado as setas para mostrar cada um individualmente.
+![alt text](https://i.ibb.co/YdKFHkd/Comida.png)
+
+### Ovos de Pokémon
+É possível o jogador possuir ovos para geração de novos Pokémons. Cada ovo tem um determinado número de Pokémons que podem nascer deles, é possível ver essas informações no tooltip da imagem do ovo. Os ovos também possuem ciclo de chocamento, tendo que o jogador esperar um tempo real, antes de chocar o ovo específico.
+![alt text](https://i.ibb.co/LDw0784/Ovo.png)
+![alt text](https://i.ibb.co/W6SjGDV/Ovo-2.png)
+
+### Mapa para Captura de novos Pokémons
+O mapa é utilizado para capturar novos Pokémons, ele possue um tempo especifíco para gerar novos Pokémons no mapa, para assim, o jogador poder gerar novos Pokémons. Cada Pokémon do mapa é gerado de forma aleatória em um raio próximo aos EUA. Ao clicar em cada icone de Pokémon, é possível capturar ou não em uma chande de 50/50.
+![alt text](https://i.ibb.co/9tvwXGt/Mapa.png)
+
+![alt text](https://i.ibb.co/NFSqX4K/Screenshot.png)
+![alt text](https://i.ibb.co/nmDV01B/Screenshot-2.png)
