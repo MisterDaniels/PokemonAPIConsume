@@ -1,5 +1,7 @@
 # Trabalho de Consumo de API's - Utilizando PokéAPI
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/31110c34ed2a4510bb0cfad0c391e532)](https://app.codacy.com/app/MisterDaniels/PokemonAPIConsume?utm_source=github.com&utm_medium=referral&utm_content=MisterDaniels/PokemonAPIConsume&utm_campaign=Badge_Grade_Dashboard)
+
 A ideia do projeto é utilizar as requisições de API em JSON do [**PokéAPI**](https://pokeapi.co/), para construir uma espécie de um jogo, onde a função do jogador é cuidar de necessidades básicas dos seus Pokémons. Então, o usuário tem como função, alimentar cada um dos seus Pokémons e capturar novos quando possibilitado. Para conhecer mais da API, acesse a [**página do Github do PokéAPI**](https://github.com/PokeAPI/pokeapi#contributing).
 
 O projeto consome URL's específicas para coletar dados de Ovos de Pokémon, para o chocamento de novos Pokémons, criando uma função extra para a aplicação. [**Documentação sobre os ovos**](https://pokeapi.co/docs/v2.html#egg-groups)
