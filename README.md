@@ -1,6 +1,6 @@
 # Trabalho de Consumo de API's - Utilizando PokéAPI
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/31110c34ed2a4510bb0cfad0c391e532)](https://app.codacy.com/app/MisterDaniels/PokemonAPIConsume?utm_source=github.com&utm_medium=referral&utm_content=MisterDaniels/PokemonAPIConsume&utm_campaign=Badge_Grade_Dashboard)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/31110c34ed2a4510bb0cfad0c391e532)](https://app.codacy.com/app/MisterDaniels/PokemonAPIConsume?utm_source=github.com&utm_medium=referral&utm_content=MisterDaniels/PokemonAPIConsume&utm_campaign=Badge_Grade_Dashboard)&nbsp;[![Academy Project](https://img.shields.io/badge/Academy-Project-informational.svg)](https://www.facebook.com/Curso-de-Ciência-da-Computação-470257173378377/)&nbsp;[![CircleCI](https://circleci.com/gh/MisterDaniels/PokemonAPIConsume.svg?style=svg)](https://circleci.com/gh/MisterDaniels/PokemonAPIConsume)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Made with Javacript](https://forthebadge.com/images/badges/made-with-javascript.svg)&nbsp;[![Creative Commons](https://forthebadge.com/images/badges/cc-0.svg)](https://creativecommons.org/share-your-work/public-domain/cc0/)
 
 A ideia do projeto é utilizar as requisições de API em JSON do [**PokéAPI**](https://pokeapi.co/), para construir uma espécie de um jogo, onde a função do jogador é cuidar de necessidades básicas dos seus Pokémons. Então, o usuário tem como função, alimentar cada um dos seus Pokémons e capturar novos quando possibilitado. Para conhecer mais da API, acesse a [**página do Github do PokéAPI**](https://github.com/PokeAPI/pokeapi#contributing).
 
@@ -68,24 +68,28 @@ Pronto, agora com os dados inicias salvos no Cookie, é possível entrar na cont
 
 ### Alimentar
 A aplicação tem como base alimentar o Pokémon do usuário. É utilizado um ciclo padrão de 1 em 1 minuto para dar fome para o Pokémon, representado na barra de progresso mais abaixo. Se caso essa base de 100% terminar, é começado um ciclo de 1 em 1 minuto para remover a vida do Pokémon. Caso o Pokémon perca o total de vida, ele morre.
-![alt text](https://i.ibb.co/8cTk1wV/Morte.png)
+&nbsp;![Alimentar](https://i.ibb.co/8cTk1wV/Morte.png)
 
 ### Level
 Os Pokémons possuem level apenas para fundamento de evolução (não presente no estado projeto)
-![alt text](https://i.ibb.co/B6M1Wqv/Level.png)
+&nbsp;![Level](https://i.ibb.co/B6M1Wqv/Level.png)
 
 ### Inventário de Pokémons
 O jogador cadastrado, possue um inventário de Pokémons que pode ser expandido. Para trocar de Pokémon, é utilizado as setas para mostrar cada um individualmente.
-![alt text](https://i.ibb.co/YdKFHkd/Comida.png)
+&nbsp;![Inventário](https://i.ibb.co/YdKFHkd/Comida.png)
 
 ### Ovos de Pokémon
 É possível o jogador possuir ovos para geração de novos Pokémons. Cada ovo tem um determinado número de Pokémons que podem nascer deles, é possível ver essas informações no tooltip da imagem do ovo. Os ovos também possuem ciclo de chocamento, tendo que o jogador esperar um tempo real, antes de chocar o ovo específico.
-![alt text](https://i.ibb.co/LDw0784/Ovo.png)
-![alt text](https://i.ibb.co/W6SjGDV/Ovo-2.png)
+
+Ovo de Pokémon             |  Pokémons possíveis do Ovo
+:-------------------------:|:-------------------------:
+![Ovos 1](https://i.ibb.co/LDw0784/Ovo.png) | ![Ovos 2](https://i.ibb.co/W6SjGDV/Ovo-2.png)
 
 ### Mapa para Captura de novos Pokémons
 O mapa é utilizado para capturar novos Pokémons, ele possue um tempo especifíco para gerar novos Pokémons no mapa, para assim, o jogador poder gerar novos Pokémons. Cada Pokémon do mapa é gerado de forma aleatória em um raio próximo aos EUA. Ao clicar em cada icone de Pokémon, é possível capturar ou não em uma chande de 50/50.
-![alt text](https://i.ibb.co/9tvwXGt/Mapa.png)
+![Mapa](https://i.ibb.co/9tvwXGt/Mapa.png)
 
-![alt text](https://i.ibb.co/NFSqX4K/Screenshot.png)
-![alt text](https://i.ibb.co/nmDV01B/Screenshot-2.png)
+### Imagens
+Ovo no inventário             |  Pokémon capturado
+:-------------------------:|:-------------------------:
+![Imagem 1](https://i.ibb.co/NFSqX4K/Screenshot.png) | ![Imagem 2](https://i.ibb.co/nmDV01B/Screenshot-2.png)
