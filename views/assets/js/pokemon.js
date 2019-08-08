@@ -6,7 +6,7 @@ var eggs = {
 };
 // Variável global carregada com as requisições dos Pokémons
 var pokemons = {
-    count: 807,
+    count: 139,
     pokemons: []
 };
 var data2;
